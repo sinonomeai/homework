@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业一</title>
+    <style>
+        .one{color:red;}
+        .two{margin:0}
+        table{ width:50%; text-align:center;height:200px}
+        .three{display: flex; flex-direction: column; width: 300px; padding: 10px;}
+        a{ text-decoration: none; color:rgb(94, 23, 10);}
+    </style>
+</head>
+<body>
+<main>
+    <h1 class="one">网站标题</h1>
+    <p>·<a href="https://www.12306.cn/index/">12306</a>
+    </p>
+    <p>
+        ·<a href="https://www.baidu.com/">百度</a>
+    </p>
+    <p>
+        ·<a href="https://www.bilibili.com/">哔哩哔哩</a>
+    </p>
+    <p>
+        ·<a href="https://www.cainiaojc.com/html/html-links.html">菜鸟教程</a>
+    </p>
+    <p>
+        ·<a href="#paragraph">这是一个跳转到段落的链接</a>
+    </p>
+    <h2>文章一级标题</h2>
+    <h2>文章二级标题</h2>
+    <h3 id="paragraph">这是一些段落</h3>
+    <div class="three">
+        <p class="two">
+        作者名：xxx 发表时间：xxxx-xx-xx
+        </p>
+        <p class="two">
+        这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,这是换行   
+        </p>
+        <p class="two">这又是一个段落,这是一个段落,这是一个段落,这是一个段落,这是一个段落,<a href="https://www.bilibili.com/">这是一个点击前往劈里啪啦的段落</a>，这是一个段落,这是一个段落。</p>
+    </div>
+    <img src="https://gss0.baidu.com/7Ls0a8Sm2Q5IlBGlnYG/sys/portrait/item/tb.1.e93439fe.LV_1DRVHqAuwEWu081ybZg?t=1755876687" width=100px height=100px" width=100px height=100px>
+    <h1>图片</h1>
+    this is a 普瑞赛斯
+    <img src="https://gss0.baidu.com/7Ls0a8Sm2Q5IlBGlnYG/sys/portrait/item/tb.1.e93439fe.LV_1DRVHqAuwEWu081ybZg?t=1755876687" width=100px height=100px" width=100px height=100px>
+    this is a 普瑞赛斯
+    <img src="https://gss0.baidu.com/7Ls0a8Sm2Q5IlBGlnYG/sys/portrait/item/tb.1.e93439fe.LV_1DRVHqAuwEWu081ybZg?t=1755876687" width=100px height=100px>
+    <h2>这是一个有序列表</h2>
+    <div>
+        <ol>
+            <li>列表展示一</li>
+            <li>列表展示二</li>
+            <li>列表展示三</li>
+        </ol>
+    </div>
+    <h2>这是一个无序列表</h2>
+    <div>
+        <ul>
+            <li>列表展示一</li>
+            <li>列表展示二</li>
+            <li>列表展示三</li>
+        </ul>
+    </div>
+    <h2>文章二级标题</h2>
+    <p class="two">作者名：xxx 发表时间：xxxx-xx-xx</p>
+    <p class="two">1.第一名</p>
+    <p class="two">2.第二名</p>
+    <p class="two">3.第三名</p>
+    <p class="two">只是一个表格，设置border=“1”</p>
+    <!--table，width，height
+    cellpadding(内边距:单元格内容与边框的距离)
+    cellspacing(外边距：单元格与单元格的距离)
+    background-color
+    align(left,center,right：表格对齐方式)
+    border
+    -->  
+    <table border="1" cellspacing="0">
+    <!-- 
+    valign(top,middle,bottom:单元格内容垂直对齐方式)
+    align(left,center,right:单元格内容水平对齐方式)
+    -->
+    <tr style="background-color:lightgrey;">
+        <!-- th:表头单元格
+        colspan:跨列
+        rowspan:跨行 
+        -->
+        <th>表头</th>
+        <th>表头</th>
+        <th>表头</th>
+        </tr>
+        <tr>
+        <!-- td:数据单元格
+        colspan:跨列
+        rowspan:跨行 
+        -->
+        <td>单元格的内容</td>
+        <td>单元格的内容</td>
+        <td>操作</td>
+    </tr>
+    <tr>
+        <td rowspan="2">6</td>
+        <td>单元格的内容</td>
+        <td>操作</td>
+    </tr>
+    <tr>
+        <td>hello</td>
+        <td>hi</td>
+    </tr>
+    </table>
+    <h2>这将是一个侧栏，这是侧栏标题</h2>
+    <h2>注册窗口标题</h2>
+    <div class="three">
+    <fieldset>
+        <legend>E-mail:</legend>
+    <input type="text" placeholder="请输入邮箱地址" name="email" required style="width: 200px; height: 30px; margin: 10px;"> </fieldset>
+    </div>
+    <div class="three">
+    <fieldset>
+        <legend>password:</legend>
+        <input type="password" placeholder="请输入密码" name="password" required style="width: 200px; height: 30px; margin: 10px;">
+    </fieldset>
+    </div>
+    <div class="three">
+    <fieldset>
+        <legend>gender:</legend>
+        <div style="margin-left:20% ;">
+            <label for="male">男</label>
+            <input type="radio" name="sex" value="boy" id="boy">
+        </div>
+        <div style="margin-left:20% ;">
+            <label for="female">女</label>
+            <input type="radio" name="sex" value="girl" id="girl">
+        </div>
+    </fieldset>
+    </div>
+    <div style=" width: 300px; padding: 10px;">
+        <fieldset>
+            <legend>origin:</legend>
+            <select id="origin" value="china" style="width: 50px; height: 30px; margin: 10px;">
+                <option value="china">中国</option>
+                <option value="usa">美国</option>
+                <option value="japan">日本</option>
+            </select>
+    </fieldset>    
+    </div>
+    <div class="three">
+        <fieldset>
+            <legend>hobby</legend> 
+            <input type="checkbox" name="sleep" value="sleep" id="sleep">
+            <label for="sleep">sleep</label><!--可以使点击sleep这个行为也能选择radio按钮（方式一用id），自动空一格-->
+            <label><input type="checkbox" name="eat" value="eat"> eat</label><!--方式二用label嵌套-->
+            <label><input type="checkbox" name="play" value="play" id="play"> play</label>
+        </fieldset>
+    </div>
+    <div class="three">
+        <fieldset>
+            <legend>self-description:</legend>
+            <textarea placeholder="请输入自我描述" name="self-discription" style="width:250px; height:100px;margin-left:10px; "></textarea>
+        </fieldset>
+    </div>
+</main>
+<footer style="position:fixed;bottom:0px;right:10px"><!--使用fixed定位使其脱离文档流，同时可能会被其他内容覆盖，用bottom:0px;right:10px等等使其位于想要在的位置-->
+    <address>
+        <em>Wriiten by sinonomeai<br><!--em:内联变斜体；strong and b:内联加粗-->
+            QQ：114514191981<br>
+        </em>
+    </address>        
+</footer>
+</body>
+</html>
