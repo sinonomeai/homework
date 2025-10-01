@@ -9,9 +9,9 @@
 	.d1{background-color: #4F4F4F;width: 100%;height: 45px;border-bottom: 5px solid #C0C0C0 ;border-top: 5px solid #2B2B2B;display:flex;}
 	.d1 p{color:white;font-size: 15px;}
 	.d2{display:flex;}
-	.d3{display: flex;width:300px;height:450px;border: 2px solid #D5D5D5;border-radius: 10px;z-index: 2;position:relative;background-color: white;}
-	.d33{display: flex;width:305px;height:450px;border-radius: 10px;background-color: #DCDCDC;z-index: 1;position:absolute;top:10px;left:5px}
-	.d4{background-color: rgb(33, 25, 25);width: 100%;height: 100px;display:flex;}
+	.d3{display: flex;flex-direction: column;width:inherit;height:inherit;border: 2px solid #D5D5D5;border-radius: 10px;z-index: 2;position:relative;background-color: white;}
+	.d33{display: flex;width:inherit;height:inherit;border-radius: 10px;background-color: #DCDCDC;z-index: 1;position:absolute;top:5px;left:8px}
+	.d4{background-color: rgb(33, 25, 25);width: 100%;height: 80px;display:flex;}
 	.d4 p{color:white;font-size: 12px;}
 </style>
 <body style="height: 100vh;">
@@ -24,13 +24,15 @@
 	
 	<main style="display: flex;flex-direction: column;">
             <div class="d2">
-			    <img src="logo.png">
+			    <img src="img/logo.png" style="width: 200px;height: 200px;margin-top:10px">
 		    </div>
 
 
-		<div style="display: flex;flex-direction: column;width:300px;margin-top: 20px;">
+		<div style="display: flex;flex-direction: column;width:300px;height:370px;margin-top: 20px;">
 			<div class="d3"><!--z-index只在二者不为position：static时有用（即默认状态）-->
-
+                <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+				<script>
+				</script>	
             </div>
 			<div class="d33">
 			</div>		
