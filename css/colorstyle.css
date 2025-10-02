@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  background-color: rgb(255, 255, 255);
+  padding: 10px 0;
+}
+
+.marker {
+  width: 200px;
+  height: 25px;
+  margin: 10px auto;
+}
+
+.cap {
+  width: 60px;
+  height: 25px;
+}
+
+.sleeve {
+  width: 110px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-left: 10px double rgba(0, 0, 0, 0.75);/*border：粗细，样式，颜色*/
+}
+
+.cap, .sleeve {
+  display: inline-block;
+}
+
+.red {
+  background: linear-gradient(rgb(122, 74, 14), rgb(245, 62, 113), rgb(162, 27, 27));
+  box-shadow: 0 0 20px 0 rgba(83, 14, 14, 0.8);
+}
+
+.green {
+  background: linear-gradient(#55680D, #71F53E, #116C31);
+  box-shadow: 0 0 20px 0 #3B7E20CC;
+}
+
+.blue {
+  background: linear-gradient(hsl(186, 76%, 16%), hsl(223, 90%, 60%), hsl(240, 56%, 42%));
+  box-shadow: 0 0 20px 0 blue;
+}
+/*颜色名表示；rgb(0,0,0)(rgb函数（红，绿，蓝）从0~255)；十六进制#000000（每两位数字表示一种颜色00~FF）；hsl（120，50%，50%）（hsl函数从左到右色调，饱和度，亮度“后两位用%”）*/
+/*颜色透明度rgba(0,0,0,0.5)(a表示透明度0~1)；hsla(120,50%,50%,0.5)(a表示透明度0~1);#000000CC十六进制多两位*/
+/*box-shadow:水平偏移 垂直偏移 模糊距离 扩展距离 颜色*/
