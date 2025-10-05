@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作业一</title>
     <style>
+        html{scroll-behavior: smooth;}/*平滑滚动*/
         .one{color:red;}
-        .two{margin:10px 0}/*上下10px，左右0(当margin有两个值的时候第一个设定上下，第二个设定左右)*/
+        .two{margin:10px 0}
         table{ width:50%; text-align:center;height:200px}
         .three{display: flex; flex-direction: column; width: 300px; padding: 10px;}
         a{ text-decoration: none; color:rgb(94, 23, 10);}
+        /*margin:上，右，下，左（四个值）*/
+        /*margin:上，左右，下（三个值）*/
+        /*margin:上下，左右（两个值）*/
     </style>
 </head>
 <body>
 <main>
-    <h1 class="one">网站标题</h1>
-    <p>·<a href="https://www.12306.cn/index/">12306</a>
+    <h1 class="one">网站标题</h1><!--title属性提示文本-->
+    <p>·<a href="https://www.12306.cn/index/" title="12306">12306</a><!--a的target属性（_blank:新窗口打开；_self:默认当前窗口；）-->
     </p>
     <p>
         ·<a href="https://www.baidu.com/">百度</a>
@@ -27,7 +31,7 @@
         ·<a href="https://www.cainiaojc.com/html/html-links.html">菜鸟教程</a>
     </p>
     <p>
-        ·<a href="#paragraph">这是一个跳转到段落的链接</a>
+        ·<a href="#paragraph">这是一个跳转到段落的链接</a><!--锚点用法-->
     </p>
     <hr><!--这是分割线-->
     <h2>文章一级标题</h2>
@@ -152,22 +156,22 @@
         <fieldset>
             <legend>hobby</legend> 
             <input type="checkbox" name="sleep" value="sleep" id="sleep">
-            <label for="sleep">sleep</label><!--可以使点击sleep这个行为也能选择radio按钮（方式一用id），自动空一格-->
+            <label for="sleep">sleep</label><!--可以使点击sleep这个行为也能选择radio按钮（方式一用id），自动空一格（for属性优化用户体验）-->
             <label><input type="checkbox" name="eat" value="eat"> eat</label><!--方式二用label嵌套-->
-            <label><input type="checkbox" name="play" value="play" id="play"> play</label>
+            <label><input type="checkbox" name="play" value="play" id="play"><!--input与文本留有空格--> play</label>
         </fieldset>
     </div>
     <div class="three">
         <fieldset>
             <legend>self-description:</legend>
-            <textarea placeholder="请输入自我描述" name="self-discription" style="width:250px; height:100px;margin-left:10px; "></textarea>
+            <textarea placeholder="请输入自我描述" name="self-discription" cols="37" rows="10"></textarea>
         </fieldset>
     </div>
 </main>
 <footer style="position:fixed;bottom:0px;right:10px"><!--使用fixed定位使其脱离文档流，同时可能会被其他内容覆盖，用bottom:0px;right:10px等等使其位于想要在的位置-->
     <address>
-        <em>Wriiten by sinonomeai<br><!--em:内联变斜体；strong and b:内联加粗-->
-            QQ：114514191981<br>
+        <em>Wriiten by sinonomeai<br><!--em:内联变斜体；strong and b:内联加粗；ins下划线；del:删除线-->
+            QQ：114514191981<br><!--br换行-->
         </em>
     </address>        
 </footer>

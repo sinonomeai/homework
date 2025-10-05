@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f5f6f7;
+}
+
+.header {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 32px;
+    background-color: #0a0a23;
+    color: #fff;
+    border-bottom: 4px solid #fdb347;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;/*溢出盒子内容换行*/
+    justify-content: center;
+    align-items: center;
+    gap: 16px 20px;/*行间距 列间距*/
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    object-fit:cover;/*保持宽高比裁剪图片*/
+    border-radius: 10px;
+}
+/*伪类元素选择器*/
+.gallery::after {
+    content: ""/*生成一个空的占位符*/;
+    width: 350px;
+}/*占位符 让最后一行图片左对齐*/
