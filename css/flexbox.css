@@ -23,7 +23,7 @@ body {
     flex-wrap: wrap;/*溢出盒子内容换行*/
     justify-content: center;
     align-items: center;
-    gap: 16px 20px;/*行间距 列间距*/
+    gap: 16px 20px;/*行间距 列间距且gap只能用于flex或grid布局*/
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px 10px;

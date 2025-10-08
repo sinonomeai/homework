@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>文档标题</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #eceeeb;
+            }
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                color: #1f50ff;
+            }
+            li {
+                list-style: none; /*去掉li前面的点*/
+            }
+            #container {
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+                position: relative;
+            }
+            #导航 {
+                width: 100%;
+                height: 50px;
+                gap: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+                background-color: rgba(236, 238, 235, 0.8);
+            }
+            #导航 a {
+                display: inline-block;
+                width: 100px;
+                height: 50px;
+                background-color: rgba(186, 29, 29, 0.8);
+                line-height: 50px;
+                text-align: center;
+
+                color: #ffffff;
+            }
+            #bg1:hover {
+                background-color: #e74c3c;
+            }
+            #bg2:hover {
+                background-color: #f39c12;
+            }
+            #bg3:hover {
+                background-color: #f1c40f;
+            }
+            #bg4:hover {
+                background-color: #2ecc71;
+            }
+            #bg5:hover {
+                background-color: #3498db;
+            }
+            #container2 {
+                display: flex;
+                margin-top: 80px;
+            }
+            #侧边栏 {
+                margin: 0 10px 0 20px;
+                width: 200px;
+                height: 650px;
+            }
+            #侧边栏 .cb {
+                display: block;
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+                padding-left: 30px; /*text-indent:30px*/
+                color: #ffffff;
+                background-color: #535758;
+            }
+            #侧边栏 .cb:hover {
+                background-color: #2c3e50;
+                color: aqua;
+            }
+            #ad {
+                width: 200px;
+                height: 200px;
+                margin-top: 20px;
+                background-color: #ffffff;
+            }
+            #ad > p {
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                padding-left: 15px;
+                border-bottom: 2px solid #e9ecec;
+                color: #8c877d;
+                font-size: 18px;
+            }
+            #ad ul {
+                font-size: 14px;
+                padding: 10px 0 0 15px;
+            }
+            #content {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                gap: 10px;
+            }
+            #content div {
+                width: 250px;
+                height: 300px;
+
+                background-color: #fcfffc;
+                color: ##4d5150;
+            }
+            #content img {
+                width: 250px;
+                height: 150px;
+            }
+            .review {
+                width: 250px;
+                height: 40px;
+                margin: 10px 0;
+                padding: 15px;
+                font-size: 14px;
+            }
+            .appraise {
+                width: 250px;
+                height: 20px;
+                margin: 40px 0 1px;
+                padding: 0 15px;
+                font-size: 12px;
+                color: gray;
+            }
+            .gn {
+                width: 250px;
+                height: 20px;
+                margin: 10px 0 1px;
+                padding: 0 0 0 15px;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .gn span {
+                color: red;
+                display: inline-block;
+                padding-left: 5px;
+                border-left: 2px solid #e9ecec;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="导航">
+                <a href="" id="bg1">五彩导航</a>
+                <a href="" id="bg2">五彩导航</a>
+                <a href="" id="bg3">五彩导航</a>
+                <a href="" id="bg4">五彩导航</a>
+                <a href="" id="bg5">五彩导航</a>
+            </div>
+            <div id="container2">
+                <div id="侧边栏">
+                    <a href="" class="cb">手机 电话卡</a>
+                    <a href="" class="cb">电视 盒子</a>
+                    <a href="" class="cb">笔记本 平板</a>
+                    <a href="" class="cb">出行 穿戴</a>
+                    <a href="" class="cb">智能 路由器</a>
+                    <a href="" class="cb">健康 儿童</a>
+                    <a href="" class="cb">耳机 音响</a>
+                    <div id="ad">
+                        <p>品优购快报</p>
+                        <ul>
+                            <li><a href="">【特惠】爆款耳机5折秒！</a></li>
+                            <li><a href="">【特惠】母亲节，健康好礼低至5折</a></li>
+                            <li><a href="">【特惠】爆款耳机5折秒！</a></li>
+                            <li><a href="">【特惠】9.9元洗100张照片</a></li>
+                            <li><a href="">【特惠】长虹智能空调立省1000</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="content">
+                    <div class="goods">
+                        <a href="">
+                            <img src="../img/1.jpg" />
+                            <p class="review">快递牛，整体不错蓝牙可以说秒连。红米给力</p>
+                            <p class="appraise">来自于117384232的评价</p>
+                            <p class="gn">Redmi AirDots真无线蓝... <span>99.9元</span></p></a
+                        >
+                    </div>
+                    <div class="goods">
+                        <a href="">
+                        <img src="../img/1.jpg" />
+                        <p class="review">快递牛，整体不错蓝牙可以说秒连。红米给力</p>
+                        <p class="appraise">来自于117384232的评价</p>
+                        <p class="gn">Redmi AirDots真无线蓝... <span>99.9元</span></p>
+                        </a>
+                    </div>
+                    <div class="goods">
+                        <a href="">
+                        <img src="../img/1.jpg" />
+                        <p class="review">快递牛，整体不错蓝牙可以说秒连。红米给力</p>
+                        <p class="appraise">来自于117384232的评价</p>
+                        <p class="gn">Redmi AirDots真无线蓝... <span>99.9元</span></p>
+                        </a>
+                    </div>
+                    <div class="goods">
+                        <a href="">
+                        <img src="../img/1.jpg" />
+                        <p class="review">快递牛，整体不错蓝牙可以说秒连。红米给力</p>
+                        <p class="appraise">来自于117384232的评价</p>
+                        <p class="gn">Redmi AirDots真无线蓝... <span>99.9元</span></p>
+                        </a>
+                    </div>
+                    <div class="goods">
+                        <a href="">
+                        <img src="../img/1.jpg" />
+                        <p class="review">快递牛，整体不错蓝牙可以说秒连。红米给力</p>
+                        <p class="appraise">来自于117384232的评价</p>
+                        <p class="gn">Redmi AirDots真无线蓝... <span>99.9元</span></p>
+                        </a>
+                    </div>
+                    <div class="goods">
+                        <a href="">
+                        <img src="../img/1.jpg" />
+                        <p class="review">快递牛，整体不错蓝牙可以说秒连。红米给力</p>
+                        <p class="appraise">来自于117384232的评价</p>
+                        <p class="gn">Redmi AirDots真无线蓝... <span>99.9元</span></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
