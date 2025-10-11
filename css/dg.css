@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #4a88be;
+    /* text-align: center（块元素的行内元素居中）;padding:20px “auto不存在”(这两个为无效居中) */
+    
+}
+#container {
+    width: 677px;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:2px solid #DDB1E2;
+    background-color: #B9DDF5;
+    margin: 20px auto;
+}
+#title {
+    text-align: center;
+    margin-top: 40px;
+    width:400px;
+    height: 200px;
+    border:2px solid #9FBDDC;
+    background-color: rgba(277,277,277,0.5);
+}
+/* 选择#title下的第一个p标签 */
+#title p:first-child {
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 20px;
+    display: inline-block;
+    background-color: #3B6CAC;
+    border-radius: 25px;
+}
+#title h1{
+    margin-top: 40px;
+    color:#3B6EAA;
+    font-weight: 900;
+    
+}
+#content{
+    background-color:#FFFFFF;
+    width:610px;
+    height:auto;
+    margin-top:20px;
+}
+.dg{
+    text-align: center;
+}
+#content p{
+    text-indent: 2em;
+    font-weight: 300;
+}
