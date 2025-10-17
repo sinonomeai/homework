@@ -30,12 +30,12 @@
     margin: 0 auto 20px;
     box-shadow: 0 0 3px 3px #8f0401;
     border-radius: 8px 10px;
-    transform: rotate(0.4deg);/*旋转*/
+    transform: rotate(0.4deg); /*旋转*/
 }
 
 .one,
 .two {
-    filter: blur(1px);/*模糊*/
+    filter: blur(1px); /*模糊*/
 }
 
 .three {
