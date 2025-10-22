@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                display: flex;
+                flex-direction: column;
+            }
+            .c1 {
+                display: inline-block;
+
+                padding-left: 10px;
+                overflow: hidden;
+                white-space: nowrap;
+                animation: gw 5s steps(44) 2s both, font 1s steps(44) forwards 9;
+                border-right: 2px solid black;
+            }
+            .c1 span {
+                display: inline-block;
+            }
+            .c2 {
+                display: inline-block;
+                padding-left: 10px;
+                overflow: hidden;
+                white-space: nowrap;
+                animation: gw 4s steps(44) 12s both, font 1s steps(44) 10s  infinite;
+                
+            }
+
+            @keyframes font {
+                from {
+                    border-right:2px solid black;
+                }
+                to {
+                    border-right:2px solid transparent;
+                }
+            }
+            @keyframes gw {
+                from {
+                    width: 0px;
+                }
+                to {
+                    width: 400px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="c1">
+            <span class="t1">这是第一段，这是第二段,这是第三段，这是第四段</span>
+        </div>
+        <div class="c2"><span class="t1">这是第一段，这是第二段,这是第三段，这是第四段</span></div>
+    </body>
+</html>

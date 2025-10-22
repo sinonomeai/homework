@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            body{
+                padding: 0;
+                margin:0;}
+            
+    
+            .kuahang{
+                max-width:1200px;
+                border:2px solid ;
+                margin:50px 0;
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                gap:10px;
+                margin:50px auto
+            }
+            .item{
+                background-color: hotpink;
+                height:120px;
+            }
+            .item:first-child{
+                background-color: #ff0000;
+                grid-column:1/span 2;
+                grid-row:1/span 2; 
+                height:auto/*自动填满*/
+            }
+        </style>
+    </head>
+    <body>
+        <div class="kuahang">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+            <div class="item">11</div>
+            <div class="item">12</div>
+        </div>
+    </body>
+</html>

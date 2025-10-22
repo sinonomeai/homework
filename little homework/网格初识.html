@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            .daohang {
+                width: 920px;
+                height: 66px;
+                display: grid;
+                grid-template-columns: repeat(11, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 10px;
+                margin: 10px auto;
+            }
+            .ct {
+                background-color: #d7d9d9;
+                border-radius: 8px;
+            }
+            .shensuo {
+                width: 80%;
+                min-width: 500px; /*最小限度*/
+                max-width: 1200px;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /*响应式核心*/
+                border: 2px solid black;
+                margin: 50px auto;
+                gap: 10px;
+            }
+            .neirong {
+                height: 120px;
+                background-color: #ff0000;
+            }
+            .kuahang {
+                max-width: 1200px;
+                min-width: 500px;
+                border: 2px solid;
+                margin: 50px 0;
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 10px;
+                margin: 50px auto;
+            }
+            .item {
+                background-color: hotpink;
+                height: 120px;
+            }
+            .item:first-child {
+                background-color: #ff0000;
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 2;
+                height: auto; /*自动填满*/
+            }
+            .bimg {
+                max-width: 1200px;
+                min-width: 500px;
+                height: 900px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                grid-auto-flow: column;
+                margin: 100px auto;
+                border-radius: 20px;
+                gap: 10px;
+                overflow: hidden;
+                
+            }
+            .bimg .img {
+                background-color: pink;
+            }
+            .img:first-child {
+                grid-row: 1/3;
+            }
+            .img:nth-child(3) {
+                grid-column: 2/4;
+                grid-row: 2/3; /*指定行否则跑到上面*/
+            }
+            .img img {
+                display: block;/*解决拉伸满后底部有小空隙*/
+                width:100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="daohang">
+            <a href="#" class="ct ct1"></a>
+            <a href="#" class="ct ct2"></a>
+            <a href="#" class="ct ct3"></a>
+            <a href="#" class="ct ct4"></a>
+            <a href="#" class="ct ct5"></a>
+            <a href="#" class="ct ct6"></a>
+            <a href="#" class="ct ct7"></a>
+            <a href="#" class="ct ct8"></a>
+            <a href="#" class="ct ct9"></a>
+            <a href="#" class="ct ct10"></a>
+            <a href="#" class="ct ct11"></a>
+            <a href="#" class="ct ct12"></a>
+            <a href="#" class="ct ct13"></a>
+            <a href="#" class="ct ct14"></a>
+            <a href="#" class="ct ct15"></a>
+            <a href="#" class="ct ct16"></a>
+            <a href="#" class="ct ct17"></a>
+            <a href="#" class="ct ct18"></a>
+            <a href="#" class="ct ct19"></a>
+            <a href="#" class="ct ct20"></a>
+            <a href="#" class="ct ct21"></a>
+            <a href="#" class="ct ct22"></a>
+        </div>
+        <div class="shensuo">
+            <div class="neirong">1</div>
+            <div class="neirong">2</div>
+            <div class="neirong">3</div>
+            <div class="neirong">4</div>
+            <div class="neirong">5</div>
+            <div class="neirong">6</div>
+            <div class="neirong">7</div>
+            <div class="neirong">8</div>
+            <div class="neirong">9</div>
+            <div class="neirong">10</div>
+            <div class="neirong">11</div>
+            <div class="neirong">12</div>
+        </div>
+        <div class="kuahang">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+            <div class="item">11</div>
+            <div class="item">12</div>
+        </div>
+        <div class="bimg">
+            <div class="img"><img src="../img/1.jpg" /></div>
+            <div class="img"><img src="../img/1.jpg" /></div>
+            <div class="img"><img src="../img/1.jpg" /></div>
+            <div class="img"><img src="../img/1.jpg" /></div>
+        </div>
+    </body>
+</html>

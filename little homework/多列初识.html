@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .content {
+                max-width: 1200px;
+                min-width: 500px;
+                border: 2px solid;
+                margin: 50px auto;
+                column-count: 4;
+                column-gap: 20px;
+                column-rule: 2px dashed red;
+            }
+            .item {
+                height: 150px;
+                background-color: pink;
+                margin-bottom: 20px;/*多列布局调整上下*/
+                break-inside: avoid-column;
+            }
+            .content .item:nth-child(3){
+                height:200px
+            }
+            .content .item:nth-child(8){
+                height:500px
+            }
+            .content .item:nth-child(15){
+                height:50px
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+            <div class="item">11</div>
+            <div class="item">12</div>
+            <div class="item">13</div>
+            <div class="item">14</div>
+            <div class="item">15</div>
+            <div class="item">16</div>
+            <div class="item">17</div>
+        </div>
+    </body>
+</html>
