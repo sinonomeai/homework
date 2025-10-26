@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let money = 0//money 不参与循环，否则归零
+            while(true){
+                //多行字符串用``
+                let a = +prompt(`
+                请选择你的操作：
+                1.存钱
+                2.取钱
+                3.查看余额
+                4.退出
+                `)
+                if(a === 4){
+                    break
+                }
+                switch(a){
+                    case 1:
+                    let b = +prompt('请输入存钱金额')
+                    money = money + b
+                    break
+                    case 2:
+                    let c =  +prompt('请输入取钱金额')
+                    if(c > money){
+                        alert('对不起，您的余额不足！')
+                    }
+                    else{
+                        money = money - c
+                    }
+                    break
+                    case 3:
+                    alert(`您的余额是${money}`) 
+
+                }
+            }
+        </script>
+    </body>
+</html>
