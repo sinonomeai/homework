@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function getRandom(N, M) {
+                return Math.floor(Math.random() * (M - N + 1)) + N;
+            }
+            document.write(getRandom(6, 100));
+            let name = ["刘备", "关羽", "张飞", "黄忠", "马超", "赵云"];
+            let bl = getRandom(0, name.length-1);
+
+            console.log(name[bl]);
+            name.splice(bl, 1);
+            console.log(name);
+        </script>
+    </body>
+</html>

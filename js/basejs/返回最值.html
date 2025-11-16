@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //function getMax(x = 0,y = 0){
+            //          return x > y ? x : y
+            //}
+            //let a = []
+            //a.push(+prompt('请输入第一个数'))
+            //a.push(+prompt('请输入第二个数'))
+            //let max = getMax(a[0],a[1])
+            //alert(`${max}`)
+            let a = [];
+            while (true) {
+                let zj = prompt("请输入要比较的数(若停止输入，请输入‘S’)");
+                if (zj === 'S' || zj === 's') {
+                    break;
+                }
+                a.unshift(+zj);
+            }
+            function getMax(b) {
+                let max = b[0];
+                let min = b[0];
+                for (let i = 0; i < b.length; i++) {
+                    if (max < b[i]) {
+                        max = b[i];
+                    }
+                    if (min > b[i]) {
+                        min = b[i];
+                    }
+                }
+                return [max,min]
+            }
+            let Max = getMax(a)[0]
+            let Min = getMax(a)[1]
+            alert(`您输入的值中，${Max}是最大的,${Min}是最小的`)
+
+        </script>
+    </body>
+</html>

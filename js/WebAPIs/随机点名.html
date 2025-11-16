@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 1px;
+                box-sizing: border-box;
+            }
+            .mainBody {
+                width: 600px;
+                height: 400px;
+                display: flex;
+                flex-direction: column;
+                border: 2px solid black;
+                margin: 50px auto;
+            }
+            .title {
+                flex: 1;
+                text-align: center;
+            }
+            .question {
+                flex: 4;
+                font-size: 22px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+            .button {
+                display: flex;
+                flex: 3;
+                justify-content: space-evenly;
+            }
+            .button button {
+                height: 30px;
+                width: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainBody">
+            <div class="title"><h1>随机问答</h1></div>
+            <div class="question">
+                <p>姓名：<span>刘德华</span></p>
+            </div>
+            <div class="button">
+                <button id="buttonStart">开始</button><button id="buttonEnd">结束</button>
+            </div>
+        </div>
+        <script>
+            //数据
+            const name = [
+                "刘德华",
+                "胡歌",
+                "霍建华",
+                "新垣结衣",
+                "花泽香菜",
+                "津田健次郎",
+                "神谷浩史",
+                "吴京",
+            ];
+            let i = 0;
+            const span = document.querySelector(".question span");
+            let nameCount;//定义在外部
+            const buttonStart = document.querySelector("#buttonStart");
+            const buttonEnd = document.querySelector("#buttonEnd");
+            //开始
+            buttonStart.addEventListener("click", function () {
+                nameCount = setInterval(function () {
+                    if (i >= name.length) {
+                        i = 0;
+                    }
+                    span.innerHTML = `${name[i]}`;
+                    i++;
+                }, 100);
+            });
+            //结束
+            buttonEnd.addEventListener("click", function () {
+                clearInterval(nameCount);
+            });
+        </script>
+    </body>
+</html>

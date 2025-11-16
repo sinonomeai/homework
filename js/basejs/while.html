@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //输出1~100
+            /*let a = 0
+        while(a<100){
+            a++
+            document.write(`${a}`)
+        }*/
+            //输出1加到100
+            /*let b = 0
+        let c = 1
+        while (c<=100){
+            b = b + c
+            c++
+        }//当c等于100时为最后一次循环，若继续进行100+1>100不再进入循环
+        document.write(`<p>${b}</p>`)*/
+            //求偶数1-100
+            let a = 0;
+            let i = 1;
+            while (i <= 100) {
+                i++
+                if(i%2 === 0){
+                    a = a + i 
+                }
+            }
+            document.write(`<p>${a}</p>`)
+        </script>
+    </body>
+</html>

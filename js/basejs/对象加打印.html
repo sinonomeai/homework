@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+                width: 100%;
+
+                box-sizing: border-box;
+            }
+            body {
+                padding: 10px 0;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            .content {
+                width: 50%;
+                min-width: 720px;
+                max-width: 1200px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                margin: 50px auto;
+                gap: 50px;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            .item {
+                display: inline-block;
+                width: 100%;
+            }
+            .item:hover {
+                transform: scale(1.1);
+                transition: all 0.3s ease;
+            }
+            .item .img {
+                width: 100%;
+                height: 200px;
+                overflow: hidden;
+            }
+
+            .item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            .long-info {
+                display: flex;
+                flex-direction: column;
+            }
+            .long-info a:hover {
+                color: rgb(28, 139, 186);
+                transition: all 0.3s ease;
+            }
+            .author-name {
+                padding-left: 10px;
+                font-size: 14px;
+                font-weight: 200;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <script>
+                let list = [
+                    {
+                        img: "../js学习.assets/bw.png",
+                        shortInfo: "【碧蓝档案4K60】白子和黑子",
+                        authorName: "Yostar",
+                    },
+                    {
+                        img: "../js学习.assets/1.jpg",
+                        shortInfo: "【GBC4K60】第一集",
+                        authorName: "NINA",
+                    },
+                    {
+                        img: "../js学习.assets/2.jpg",
+                        shortInfo: "【GBC4K60】第二集",
+                        authorName: "MMK",
+                    },
+                    {
+                        img: "../js学习.assets/3.jpg",
+                        shortInfo: "【GBC4K60】第三集",
+                        authorName: "486",
+                    },
+                ];
+                for (let i = 0; i < list.length; i++) {
+                    document.write(`
+            <li class="item">
+                <a href="#">
+                <div class="img"><img src="${list[i].img}" alt="" /></div>
+                <div class="long-info">
+                    <a href="#"><span class="short-info">${list[i].shortInfo}</span></a>
+                    <a href="#"><span class="author-name">${list[i].authorName}</span></a>
+                </div>
+                </a>
+            </li>
+            `);
+                }
+            </script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function random(N, M) {
+                return Math.floor(Math.random() * (M - N + 1)) + N;
+            }
+
+            while (true) {
+                let a = random(0, 100);
+                let count = 0;
+                let gameExit = false;
+                while (true) {
+                    let input = prompt("请输入一个数进行猜测,您有十次机会。（点击取消退出游戏）");
+
+                    // 处理取消或关闭
+                    if (input === null) {
+                        alert("游戏结束，谢谢游玩！");
+                        gameExit = true;
+                        break;
+                        //可以在此return直接结束整个函数，此处用gameExit更方便我理解循环中的赋值
+                    }
+                    //移除字符串两端的空白字符
+                    if (input.trim() === "") {
+                        alert("请输入数字！");
+                        continue;
+                    }
+                    let b = +input;
+
+                    // 先检查是否为数字，如果不是就不计数
+                    if (isNaN(b)) {
+                        alert("请输入数字！");
+                        continue;
+                    }
+                    //在检查之后，不计数
+                    count++;
+                    // 如果十次机会用完还没猜对
+                    if (count = 10) {
+                        alert(`很遗憾，机会用完了，正确答案是${a}。`);
+
+                        // 询问是否继续游戏
+                        if (!confirm("点击确定继续游戏，取消退出游戏")) {
+                            alert("游戏结束，谢谢游玩！");
+                            gameExit = true;
+                        }
+                        break;
+                    }
+
+                    if (b === a) {
+                        alert(`恭喜你，猜了${count}次就对了！`);
+
+                        // 询问是否继续游戏
+                        if (!confirm("点击确定继续游戏，取消退出游戏")) {
+                            alert("游戏结束，谢谢游玩！");
+                            gameExit = true;
+                        }
+                        break;
+                    } else if (b > a) {
+                        alert("你猜大了！");
+                        continue;
+                    } else {
+                        alert("你猜小了！");
+                        continue;
+                    }
+                }
+
+                if (gameExit) {
+                    break;
+                }
+            }
+        </script>
+    </body>
+</html>

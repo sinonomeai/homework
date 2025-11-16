@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [1,22,25,36,77,88,99,44,75]
+        let b = []
+        for(let e = 0 ; e < a.length ; e++ ){
+             if(a[e] >= 10){
+                b.unshift(a[e])
+             }
+        }
+        for (let i = 1; i <= b.length; i++) {
+                for (let n = 0; n < b.length; n++) {
+                    if (b[n] > b[n + 1]) {
+                        let x = b[n + 1];
+                        b[n + 1] = b[n];
+                        b[n] = x;
+                    }
+                }
+            }
+        alert(b)
+    </script>
+</body>
+</html>

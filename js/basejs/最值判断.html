@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let a = [2, 3, 100, 1, 9]
+            let max = a[0]
+            let min = a[0]
+
+            for (let i = 1; i < a.length; i++) {
+                /*if(n > a[i]){
+                    continue
+                }else {
+                    n = a[i]
+                }*/
+                if (max < a[i]) {
+                    max = a[i]
+                }
+                if(min > a[i]){
+                   min = a[i]
+                }
+            }
+            alert(`${max} and ${min}`);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .b1 {
+                width: 900px;
+                height: 500px;
+                margin: 50px auto;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-end;
+                border-left: 2px solid black;
+                border-bottom: 2px solid black;
+            }
+            .b2 {
+                width: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between; /*分离*/
+                background-color: red;
+            }
+            .b2 span {
+                height: 20px;
+                width: 50px;
+                display: block;
+                text-align: center;
+                line-height: 20px;
+                margin-top: -25px;
+            }
+
+            .b2 h4 {
+                width: 70px;
+                margin-bottom: -50px;
+                margin-left: -8px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            let a = [];
+
+            for (let i = 1; i <= 4; i++) {
+                a.unshift(+prompt(`请输入第${i}季度的数据`));
+            }
+            document.write(`<div class="b1">`);
+            for (let i = 0; i <= 3; i++) {
+                document.write(`
+                    <div class="b2" style="height:${a[i]}px ">
+                <span>${a[i]}</span>
+                <h4>第${i + 1}季度</h4>
+                     </div>
+                     `);
+            }
+            document.write(`</div>`);
+        </script>
+    </body>
+</html>

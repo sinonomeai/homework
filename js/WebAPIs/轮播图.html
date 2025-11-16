@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                padding: 5px 0;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            /*轮播图主体*/
+            .lunbo {
+                margin: 50px auto;
+                width: 600px;
+                height: 440px;
+                display: flex;
+                flex-direction: column;
+                background-color: rgba(0, 0, 255, 0.5);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            /*图片部分 */
+            .img {
+                flex: 1;
+            }
+            .img img {
+                width: 100%;
+            }
+            /* 信息部分 */
+            .idc {
+                display: flex;
+                flex-direction: column;
+                padding: 8px 1em 10px;
+                flex: 1;
+            }
+            /* 信息栏 */
+            .info {
+                display: flex;
+                justify-content: space-between;
+                color: rgb(255, 255, 255);
+                font-size: 20px;
+            }
+            .infoText {
+                flex: 9;
+            }
+            .button {
+                display: flex;
+                gap: 10px;
+                flex: 1;
+            }
+            .button button {
+                width: 30px;
+                height: 30px;
+                font-size: 20px;
+                cursor: pointer;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
+            }
+            .button button:hover {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+            /* 小圆点部分 */
+            .dots {
+                display: flex;
+                list-style: none;
+                padding-left: 5px;
+            }
+            .dots li {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                margin-right: 10px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .dots li.active {
+                background-color: rgba(255, 255, 255, 0.9);
+                transform: scale(1.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="lunbo">
+            <div class="img">
+                <img src="../js学习.assets/1.jpg" />
+            </div>
+            <div class="idc">
+                <div class="info">
+                    <a href="#" class="infoText">
+                        <span>GBC第一集</span>
+                    </a>
+                    <div class="button">
+                        <button class="Left"><</button> <button class="Right">></button>
+                    </div>
+                </div>
+                <ul class="dots">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            // 切换
+            const img = [
+                { src: "../js学习.assets/1.jpg", title: "GBC第一集" },
+                { src: "../js学习.assets/2.jpg", title: "GBC第二集" },
+                { src: "../js学习.assets/3.jpg", title: "GBC第三集" },
+                { src: "../js学习.assets/4.jpg", title: "GBC第四集" },
+                { src: "../js学习.assets/5.jpg", title: "GBC第五集" },
+                { src: "../js学习.assets/6.jpg", title: "GBC第六集" },
+                { src: "../js学习.assets/7.jpg", title: "GBC第七集" },
+                { src: "../js学习.assets/8.jpg", title: "GBC第八集" },
+            ];
+            // 获取元素
+            const imgSrc = document.querySelector(".img img");
+            const info = document.querySelector(".info span");
+            //标点函数
+            function labelDots(){
+                imgSrc.src = img[liCount].src;
+                info.innerHTML = img[liCount].title;
+                let activeLi = document.querySelector(`.dots li.active`);
+                let li = document.querySelector(`.dots li:nth-child(${liCount + 1})`);
+                //删除上一个小圆点的active类名，给当前小圆点添加active类名
+                activeLi.classList.remove("active");
+                li.classList.add("active");
+            }
+            // 轮播图自动播放
+            let liCount = 0;
+            let mainBodyCount = setInterval(function () {
+                liCount++;
+                if (liCount >= img.length) {
+                    liCount = 0;
+                }
+                labelDots()
+            }, 1000);
+            //进入停止
+            const lunBo = document.querySelector(".lunbo");
+            lunBo.addEventListener("mouseenter", function () {
+                clearInterval(mainBodyCount);
+            });
+            //出去进行
+            lunBo.addEventListener("mouseleave", function () {
+                mainBodyCount = setInterval(function () {
+                    liCount++;
+                    if (liCount >= img.length) {
+                        liCount = 0;
+                    }
+                    labelDots()
+                }, 1000);
+            });
+            //左右切换
+            let btnLeft = document.querySelector(".button .Left");
+            btnLeft.addEventListener("click", function () {
+                liCount--;
+                if (liCount === -1) {
+                    liCount = 7;
+                }
+                labelDots()
+            });
+            let btnRight = document.querySelector(".button .Right");
+            btnRight.addEventListener("click", function () {
+                liCount++;
+                if (liCount === 8) {
+                    liCount = 0;
+                }
+                labelDots()
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let a = [];
+            let b = +prompt('您要输入几个数？')
+            for (let c = 1;c <= b;c++) {
+                a.unshift(+prompt("请输入数字"));
+            }
+            //外循环
+            for (let i = 1; i <= a.length; i++) {
+                //内循环
+                for (let n = 0; n < a.length - i; n++) {
+                    if (a[n] < a[n + 1]) {
+                        let x = a[n + 1];
+                        a[n + 1] = a[n];
+                        a[n] = x;
+                    }
+                }
+            }
+            alert(a)
+        </script>
+    </body>
+</html>

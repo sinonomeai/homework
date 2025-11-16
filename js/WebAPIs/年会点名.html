@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .mainBody {
+                margin: 0 auto;
+                width: 600px;
+                height: 600px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(red, 0, 0, 0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainBody">
+            <p class="mainTitle"><b>年会抽奖</b></p>
+            <div class="mainContent">
+                <h1>一等奖：<span class="name1">甲</span></h1>
+                <h2>二等奖：<span class="name2">乙</span></h2>
+                <h3>三等奖：<span class="name3">丙</span></h3>
+            </div>
+        </div>
+       <script>
+    let names = ["刘德华", "张学友", "金城武", "胡歌", "周杰伦", "周星驰"];
+    
+    for (let i = 1; i <= 3; i++) {
+        const randomName = Math.floor(Math.random() * names.length);
+        document.querySelector(`.name${i}`).innerText = names[randomName];
+        names.splice(randomName, 1);
+    }
+</script>
+    </body>
+</html>
