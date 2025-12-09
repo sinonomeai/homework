@@ -135,7 +135,7 @@ initial-scale=1.0" />
             const imgSrc = document.querySelector(".img img");
             const info = document.querySelector(".info span");
             //标点函数
-            function labelDots(){
+            function labelDots() {
                 imgSrc.src = img[liCount].src;
                 info.innerHTML = img[liCount].title;
                 let activeLi = document.querySelector(`.dots li.active`);
@@ -151,7 +151,7 @@ initial-scale=1.0" />
                 if (liCount >= img.length) {
                     liCount = 0;
                 }
-                labelDots()
+                labelDots();
             }, 1000);
             //进入停止
             const lunBo = document.querySelector(".lunbo");
@@ -165,7 +165,7 @@ initial-scale=1.0" />
                     if (liCount >= img.length) {
                         liCount = 0;
                     }
-                    labelDots()
+                    labelDots();
                 }, 1000);
             });
             //左右切换
@@ -175,7 +175,7 @@ initial-scale=1.0" />
                 if (liCount === -1) {
                     liCount = 7;
                 }
-                labelDots()
+                labelDots();
             });
             let btnRight = document.querySelector(".button .Right");
             btnRight.addEventListener("click", function () {
@@ -183,8 +183,17 @@ initial-scale=1.0" />
                 if (liCount === 8) {
                     liCount = 0;
                 }
-                labelDots()
+                labelDots();
             });
+            // 点击小圆点切换-------不会，不懂
+            const dots = document.querySelectorAll(".dots li");
+            dots.forEach((dot, idx) => {
+                dot.addEventListener("click", () => {
+                    liCount = idx;
+                    labelDots();
+                });
+            });
+
         </script>
     </body>
 </html>

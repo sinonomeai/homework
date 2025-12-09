@@ -563,6 +563,15 @@ console.log(arr[k]) // arr[k]
 
    arr [0]
 
+   **`includes()`** 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 `true`，否则返回 `false`。
+
+   ```javascript
+   const array1 = [1, 2, 3];
+   console.log(array1.includes(2));
+   ```
+
+   
+
 2. 重新赋值             
 
    数组 [下标] = 新值
@@ -997,7 +1006,7 @@ const div = querySelector('.box')
 
 3. 操作表单样式
 
-+ `表单.value = ''`
++ `表单.value = ''`获取输入内容
 + `表单.type = ''`
 + 表单属性中添加就有效果，移除就没有效果，一律使用布尔值表示如果为true 代表添加了该属性如果是false代表移除了该属性
   比如: disabled、checked、selected
@@ -1077,19 +1086,479 @@ btn.addEventListener('click', function(){alert（点击了~'}）
 
 + 文本事件
 
-1. input                 用户输入事件
+1. input                 用户输入事件（用户输入一个字符执行一次）
+
+​    
+
+##### 事件对象
+
++ 获取事件对象
+  + 事件对象是什么 
+
+​              也是个对象，这个对象里有事件触发时的相关信息                                                                                  
+
+​              语法：
+
+```javascript
+元素.addEventListener('click',function(e){})
+```
+
++ 常用属性
+
+  **type**:获取当前事件类型
+
+  **clientX/clientY**:获取光标相对于浏览器可见窗口左上角位置
+
+  **offsetX/offsetY**:获取光标相对于当前DOM元素左上角位置
+
+  **key**：用户按下的键盘键的值(不提倡keyCode)
+
+  ```javascript
+  input.addEventListener（'keyup',function （e）{
+  if(e.key === 'Enter')
+  {
+  console.log（我按下了回车键”）}
+  }
+  ```
+
+##### 环境对象
+
++ 函数内部特殊变量this，代表当前函数运行所处的环境
++ 即指向函数的调用者
+
+##### 回调函数
+
++ 定义：如果将函数A做为参数传递给函数B时，我们称函数A为回调函数
+
+```javascript
+function fn() {
+console.log('我是回调函数...")
+//fn传递给了setInterval，此时fn就是回调函数
+setInterval(fn, 1000)
+```
+
+##### 事件流
+
++ 事件流：事件完整执行的流动过程
+
+![image-20251201224525574](./js学习.assets/image-20251201224525574.png)
+
+​     当页面div触发事件时，会经历捕获到冒泡阶段（捕获从父到子，冒泡从子到父）
+
+​     ‘’实际工作使用事件冒泡为主”
+
++ 事件捕获
+
+​       从DOM的根元素开始去执行对应的事件（从外到里）
+
+```javascript
+DOM.addEventListener(事件类型,事件处理函数,是否使用捕获机制(true/false))
+```
+
+addEventListener第三个参数传入true代表是捕获阶段触发（很少使用）
+
+若传入false代表**冒泡阶段触发，默认就是false**
+
+```javascript
+const father = document.querySelector('.father')
+const son =document.querySelector('.son')
+document.addEventListener（'click',function(){
+alert（我是爷爷"）})
+fa.addEventListener（'click',function(){
+    alert（我是爸爸）
+                                      })
+son.addEventListener()'click',function(){
+    alert（‘我是儿子）
+e.stopPropagation()})
+    //儿子属于父元素，冒泡即点击子元素由小到依次触发事件
+    //捕获则是由大到小
+```
+
+
+
++ 事件冒泡
+
+当一个元素的事件被触发时，同样的事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为事件冒泡（事件默认false即冒泡）
+
+简单理解：当一个元素触发事件后，会依次向上调用所有父级元素的**同名事件**（同为点击，滑动等）
+事件冒泡是默认存在的
+
++ 阻止冒泡
+
+​       前提：拿到事件对象
+
+​       语法：
+
+       ```javascript
+       （事件对象）e.stopPropagation()//阻止传播，冒泡和捕获
+       ```
+
+
+
++ 解绑事件
+
+  + on
+
+  ```javascript
+  btn.onclick = function (） {alert（'点击了'）}
+  //解绑事件
+  btn.onclick = null
+  //可以实现指定次数后移除事件
+  ```
+
+  + EventListener
+
+  ```javascript
+  function fn() {alert（'点击了'）
+  btn.addEventListener('click',fn)
+  btn.removeEventListener('click', fn)
+                 //匿名函数无法解绑，得先声明
+  ```
+
+  
+
+
+
++ 鼠标经过事件
+
+```javascript
+mouseover和mouseout会有冒泡效果
+mouseenter 和mouseleave没有冒泡效果（推荐)
+```
+
+##### 事件委托
+
++ 用处：同时给多个元素注册事件（还可以用for循环）
+
++ 优点：减少注册次数，可以提高程序性能
+
++ 原理：事件委托其实是利用事件冒泡的特点。
+
+  给父元素注册事件，当我们触发子元素的时候，会**冒泡**到父元素身上，从而触发父元素的事件
+
+```javascript
+事件对象.target. tagName === 'DIV'
+事件对象.target.matches('body div')
+const ul = document.querySelector('ul')
+ul.addEventListener('click',function （e){// console.dir(e.target)
+if （e.target.tagName === 'LI') {this.style.color = 'pink'
+)}}
+```
+
++ 阻止事件默认行为
+
+我们某些情况下需要阻止默认行为的发生，比如阻止链接的跳转，表单域跳转
+
++ 语法
+
+       ```javascript
+       <form action="http://www.baidu.com"><input type="submit"value="提交">
+       </form>
+       <script>
+       const form = document.querySelector('form')
+       form.addEventListener('click', function （e) {
+       //阻止表单默认提交行为
+       e.preventDefault()
+       }
+       ```
+
+##### 其他事件
+
++ 页面加载事件
+
+  + 加载外部资源（如图片、外联cSS和javaScript等）加载完毕时触发的事件
+
+  + 有些时候需要等页面资源全部处理完了做一些事情
+    老代码喜欢把script写在head中，这时候直接找dom元素找不到
+
+  + 事件名：load、DoMcontentLoaded
+
+  + ```javascript
+    window.addEventListener('load', function (){
+    //执行的操作
+        在这里面再编写具体代码，加载事件作为大前提
+    )}
+    document.addEventListener（'DoMcontentLoaded', function （) {
+    //执行的操作
+    )}//无需等待样式表、图像，只需要html加载完就可以触发                        
+    ```
+
++ 元素滚动事件
+
+  + 固定导航栏，并添加新内容（粘性定位做不到）
+  + 事件名：scroll
+
+  ```javascript
+  window.addEventListener('scroll',function(){})
+  每检测到滚动一像素就触发一次
+  ```
+
+  + 获取滚动
+
+    **scrollLeft和scrollTop**
+
+    ```javascript
+    const div = document.querySelector('div')
+    window.addEventListener('scroll', function () {
+        const n = document.documentElement.scrollTop
+        //document.documentElement获取整个html
+        //document.body获取body标签
+        if(n>=100){
+            div.style.display = 'block'
+        }else{
+            div.style.display = 'none'
+        }
+    }
+    ```
+
+  + 注意
+
+    ```javascript
+    const n = document.documentElement.scrollTop
+    window.addEventListener('scroll', function () {
+       console.log(n)//只会输出0,因为n定义在外面，只会获取其当前上下文的数据
+    }
+    ```
+
+    
+
++ 页面尺寸事件
+
+  + 在页面尺寸改变时触发
+
+  + 事件名：resize
+  + 获取宽高：只有可见部分（content padding）**clientWidth和clientHeight**
+
++ 元素的位置、尺寸
+
+​        通过js获取元素位置
+
+​       
+
+| 获取宽高(content padding border) | 获取位置(距父元素)    |
+| -------------------------------- | --------------------- |
+| offsetWidth和offsetHeight        | offsetTop和offsetLeft |
+
+```javascript
+const div = document.querySelector('div')
+console.log(div.offsetLeft)
+```
+
+##### 日期对象
+
++ 让网页显示日期，得到系统时间
+
++ 实例化
+
+  + 在代码中发现new关键字，这个操作称为实例化
+  + 获取时间
+
+  ```javascript
+  const date = new Date()//当前系统时间
+  const date1 = new Date（'2022-5-1 08:30:00')
+  console.log(date1) //获取指定时间
+  ```
+
++ 日期对象方法
+
+  
+
+  ![image-20251206172030676](./js学习.assets/image-20251206172030676.png)
+
+```javascript
+const date = new Date()
+//使用里面的方法
+console.log(date.getFullYear) 2025
+console.log(date.getMonth()+1)  需要+1
+```
+
+![image-20251206221022089](./js学习.assets/image-20251206221022089.png)
+
+或直接调用
+
+```javascript
+const div = document.querySelector('div')1/得到日期对象
+const date = new Date()
+div.innerHTML = date.toLocaleString()//2022/4/1 09:41:21
+div.innerHTML = date.toLocaleDateString()//2022/4/1
+div.innerHTML = date.toLocaleString()//09:41:21
+```
+
++ 时间戳
+
+  + 使用：倒计时效果
+
+  + 是指1970年01月01日00时00分00秒起至现在的**毫秒数**，它是一种特殊的计量时间的方式
+
+  + 算法
+
+    + 将来时间戳 - 现在时间戳 = 剩余毫秒数
+    + 剩余时间毫秒数 转换为 剩余时间的年月日分秒 就是 倒计时时间
+    + 例如：将来时间戳 2000ms - 现在时间戳 1000ms = 1000ms
+    + 1000ms 转化为 0小时0分1秒
+
+  + 获取方式
+
+    + getTime
+
+      ```javascript
+      const date = new Date()
+      console.log(date.getTime())
+      ```
+
+    + +new Date
+
+    + Date.now()
+
+    **`new Date().getDay()可以不声明变量直接使用`**
+
+    
+
+##### 查找DOM节点
+
++ DOM树的每一个内容都叫节点
+
++ 节点类型
+
+  + 元素节点
+    + 所有的标签如 body div
+    + html是根节点
+  + 属性节点
+    + 所有的属性 href
+  + 文本节点
+    + 所有的文本
+  + 其他
+
++ 查找节点
+
+  + 如要通过点击按钮关闭父元素，本需要获取父元素，现在只需要直接关闭父元素
+
+  + 节点关系：针对的找亲戚，返回的都是对象
+
+    + 父节点
+      + parentNode属性
+      + 返回最近一级父节点，找不到为null
+      + 子元素.parentNode
+
+    + 子节点
+
+      + childNode
+      + 获得所有子节点，包括文本节点（空格，换行）、注释节点等
+      + **children**
+      + 仅获得所有元素节点
+      + 返回伪数组
+
+    + 兄弟节点
+
+      + 下一个兄弟
+      + nextElementSibling
+      + 上一个
+      + previousElementSibling
+
+      
+
++ 增加节点
+
+  + 在页面增加元素
+
+    + 如发布评论
+
+  + 操作
+
+    + 创建新节点
+    + 把创建的新节点放入指定元素内部
+
+  + 创建节点
+
+    `document.creatElement('标签名')`
+
+  + 追加节点
+
+    + 插入某个父元素里面
+
+    + 插入最后一个
+
+      `父元素.appendChild(要插入的元素)`
+
+    + 插入到父元素中某个子元素前面
+
+      ```javascript
+      父元素.insertBefore(要插入的元素，在哪个元素前面)
+      const ul = document.querySelector('ul')
+      const 1i = document.createElement（"li")
+      li.innerHTML =‘我是li'
+      ul.insertBefore(1i, ul.children[0])
+      ```
+
+      
+
++ 删除节点
+
+  + 在原生DOM操作中，要删除元素必须通过父元素删除
+
+  + ```javascript
+    父元素.removeChild(要删除的元素)
+    ```
+
+  + 
+
++ 克隆节点
+
+```javascript
+元素.cloneNode(布尔值)
+const ul = document.querySelector('ul')
+ul.appendChild(ul.children[0].cloneNode(true))
+```
+
+![image-20251207105057511](./js学习.assets/image-20251207105057511.png)
+
+##### M端事件
+
++ 触屏事件
+
+  ![image-20251207105832439](./js学习.assets/image-20251207105832439.png)
 
 #### BOM
 
-##### 操作浏览器
+##### windou对象
 
-##### 正则表达式
+##### 本地存储
 
 
 
 ### js高级
 
+#### 作用域
 
+##### 局部作用域
+
+##### 全局作用域
+
+##### 作用域链
+
+##### JS垃圾回收机制
+
+##### 闭包
+
+##### 变量提升
+
+#### 函数进阶
+
+##### 函数提升
+
+##### 函数参数
+
+##### 箭头函数
+
+#### 解构赋值
+
+##### 数组解构
+
+##### 对象解构
+
+#### 深入对象
+
+#### 内置构造函数
 
 
 

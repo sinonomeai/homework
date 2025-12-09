@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                padding-top: 1px;
+            }
+            .content {
+                margin-top: 100px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .chess {
+                margin: 30px;
+                width: 320px;
+                height: 320px;
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+                gap: 10px;
+                background-color: #000000;
+            }
+            .item {
+                background-color: #fff;
+            }
+            .item p {
+                margin: 0;
+                line-height: 100px;
+                text-align: center;
+                font-size: 80px;
+            }
+            .winner p {
+                color: red;
+                font-size: 30px;
+            }
+            .button button {
+                width: 100px;
+                height: 60px;
+                background-color: #efefef;
+                border: 8px solid #a8a8a8;
+                border-radius: 10px;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+            .button button:hover {
+                background-color: #4e4e4e;
+                border: 8px solid #000000;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="player">
+                <p>当前游戏玩家：<span>X</span></p>
+            </div>
+            <div class="chess">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <div class="winner"><p></p></div>
+            <div class="button"></div>
+        </div>
+
+        <script>
+            let gameOver = 3;
+            let items = document.querySelectorAll(".item");
+            let player = document.querySelector(".player span");
+            let count = 0;
+            let itemsMonitor = [
+                ["", "", ""],
+                ["", "", ""],
+                ["", "", ""],
+            ];
+            let winner = document.querySelector(".winner p");
+            let btn = document.querySelector(".button");
+            let row = 0;
+            let col = 0;
+
+            // 优化，等待理解
+            const chessBoard = document.querySelector(".chess");
+            chessBoard.addEventListener("click", function (e) {
+                const item = e.target;
+
+                // 检查是否点击了格子
+                if (!item.classList.contains("item")) return;
+
+                // 检查游戏状态和格子是否为空
+                if (gameOver !== 3 || item.textContent !== "") return;
+
+                // 获取格子索引
+                const index = [...document.querySelectorAll(".item")].indexOf(item);
+                const row = Math.floor(index / 3);
+                const col = index % 3;
+
+                // 判断当前玩家
+                const isPlayerX = count % 2 === 0;
+                const symbol = isPlayerX ? "X" : "O";
+
+                // 更新界面和状态
+                item.innerHTML = `<p>${symbol}</p>`;
+                itemsMonitor[row][col] = symbol;
+                player.innerHTML = isPlayerX ? "O" : "X";
+                count++;
+
+                // 判断游戏状态
+                judgeGame();
+            });
+
+            // 判断游戏状态
+            function judgeGame() {
+                // 判断行和列
+                for (let i = 0; i < 3; i++) {
+                    let colX = 0,
+                        rowX = 0,
+                        colO = 0,
+                        rowO = 0;
+                    for (let j = 0; j < 3; j++) {
+                        // 检查行
+                        if (itemsMonitor[i][j] === "X") {
+                            rowX++;
+                        } else if (itemsMonitor[i][j] === "O") {
+                            rowO++;
+                        }
+                        // 检查列
+                        if (itemsMonitor[j][i] === "X") {
+                            colX++;
+                        } else if (itemsMonitor[j][i] === "O") {
+                            colO++;
+                        }
+                    }
+                    if (rowX === 3 || colX === 3) {
+                        gameOver = 1;
+                        break;
+                    } else if (rowO === 3 || colO === 3) {
+                        gameOver = 2;
+                        break;
+                    }
+                }
+
+                // 对角线
+                if (gameOver === 3) {
+                    // 主对角线
+                    if (
+                        itemsMonitor[0][0] !== "" &&
+                        itemsMonitor[0][0] === itemsMonitor[1][1] &&
+                        itemsMonitor[1][1] === itemsMonitor[2][2]
+                    ) {
+                        gameOver = itemsMonitor[0][0] === "X" ? 1 : 2;
+                    }
+                    // 副对角线
+                    else if (
+                        itemsMonitor[0][2] !== "" &&
+                        itemsMonitor[0][2] === itemsMonitor[1][1] &&
+                        itemsMonitor[1][1] === itemsMonitor[2][0]
+                    ) {
+                        gameOver = itemsMonitor[0][2] === "X" ? 1 : 2;
+                    }
+                }
+
+                // 检查平局 确保所有格子都被填满
+                if (gameOver === 3 && count === 9) {
+                    winner.innerHTML = "很遗憾,无人获胜";
+                    btn.innerHTML = "<button>重置游戏</button>";
+                } else if (gameOver === 1) {
+                    winner.innerHTML = "恭喜玩家X获胜";
+                    btn.innerHTML = "<button>重置游戏</button>";
+                } else if (gameOver === 2) {
+                    winner.innerHTML = "恭喜玩家O获胜";
+                    btn.innerHTML = "<button>重置游戏</button>";
+                }
+                //重置
+                btn.addEventListener("click", function (e) {
+                    if(e.target.matches(".button button")){
+                    resetAll();}
+                });
+
+                function resetAll() {
+                    gameOver = 3;
+                    count = 0;
+                    winner.innerHTML = "";
+                    player.innerHTML = "X";
+                    for (let i = 0; i < 9; i++) {
+                        items[i].innerHTML = "";
+                    }
+                    btn.innerHTML = "";
+                    itemsMonitor = [
+                        ["", "", ""],
+                        ["", "", ""],
+                        ["", "", ""],
+                    ];
+                }
+            }
+        </script>
+    </body>
+</html>

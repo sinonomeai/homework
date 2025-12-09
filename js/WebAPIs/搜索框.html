@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width,
+initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                padding: 1px;
+                box-sizing: border-box;
+            }
+            a {
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+            }
+            .mainBody {
+                height: 500px;
+                width: 500px;
+                margin: 200px auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+            }
+
+            input[type="search"] {
+                width: 200px;
+                height: 25px;
+                outline: none;
+                padding: 0;
+                
+                text-indent: 1em;
+            }
+            .inputHover{
+                border: 1px solid;
+            }
+            .inputSearch {
+                border: 1px solid rgb(255, 0, 0)
+            }
+            .mainBody ul {
+                display: none;
+                width: 199px;
+                position: absolute;
+                border: 1px solid rgb(255, 0, 0);
+                border-top: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 25px;
+                padding-left: 0;
+                margin: 0;
+                transition: all 1s ease-out;
+            }
+            .mainBody li {
+                list-style: none;
+                height: 25px;
+                padding-left: 1em;
+            }
+            .mainBody li:hover {
+                background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainBody">
+            <input type="search" placeholder="XIAOMI" class="" />
+            <ul>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            const search = document.querySelector('input');
+            const ul = document.querySelector("ul");
+            search.addEventListener("mouseenter", function () {
+                search.classList.add("inputHover");
+            });
+            search.addEventListener("mouseleave", function () {
+                search.classList.remove("inputHover");
+            });
+            search.addEventListener("focus", function () {
+                ul.style.display = "block";
+                search.classList.add("inputSearch");
+            });
+            search.addEventListener("blur", function () {
+                ul.style.display = "none";
+                search.classList.remove("inputSearch");
+            });
+        </script>
+    </body>
+</html>
